@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+
+    <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+
+<script>
+    // $(document).ready(function (){
+    //     $("#btn").on("click", (e)=> {
+    //         // alert("click")
+    //         $('#result').append("<li>AAA</li>") // 잘못쓴 코드. 이렇게 쓰면 느려짐 -> 실행시킬때마다 jquerry 실행되므로. jquerry는 가능하면 남발하지 말고, 필요할때 하나 만들어놓고 재사용하기
+    //     })
+    //
+    // })
+
+    $(document).ready(function (){
+
+        const result = $('#result')
+        let count = 0
+
+        $("#btn").on("click", (e)=> {
+            // alert("click")
+            result.append(`<li>AAA ${count++}</li>`) // 이게 더 깔끔
+        })
+
+        $("#result").on("click", "li", function (e){
+            $(e.target).remove() // 클릭한거만 삭제. 바닐라선 이게 안됨
+        })
+
+    })
+</script>
+
+<button id="btn">CLICK</button>
+
+<ul id = "result">
+
+</ul>
+
+</body>
+</html>
